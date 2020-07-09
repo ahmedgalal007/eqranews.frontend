@@ -1,10 +1,17 @@
-const CrawlingSourceReducer = CrawlingSource => {
-	return {
-		Type: 'CRAWLING_SOURCE_SELECTED',
-		payload: CrawlingSource,
-	};
+const CrawlingSourcesReducer = (CrawlingSources = [], Action) => {
+	if (Action.type === 'CRAWLING_SOURCE_FETCHED') {
+		return Action.payload;
+	}
+	return CrawlingSources;
 };
-export { CrawlingSourceReducer };
+const SelectedSourceReducer = (source, Action) => {
+	if (Action.type === 'CRAWLING_SOURCE_SELECTED') {
+		return Action.payload;
+	}
+	return source;
+};
+export { CrawlingSourcesReducer, SelectedSourceReducer };
 export default {
-	CrawlingSourceReducer: CrawlingSourceReducer,
+	CrawlingSourcesReducer: CrawlingSourcesReducer,
+	SelectedSourceReducer: SelectedSourceReducer,
 };

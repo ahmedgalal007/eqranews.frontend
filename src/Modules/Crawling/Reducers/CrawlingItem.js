@@ -10,8 +10,8 @@ const SelectedItemReducer = (item, Action) => {
 	}
 	return item;
 };
-export { CrawlingItemsReducer };
+export { CrawlingItemsReducer, SelectedItemReducer };
 export default {
-	CrawlingItems: CrawlingItemsReducer,
-	SelectedItem: SelectedItemReducer,
+	CrawlingItemsReducer: CrawlingItemsReducer,
+	SelectedItemReducer: SelectedItemReducer,
 };

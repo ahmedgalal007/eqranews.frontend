@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
-import { CrawlingSourceReducer } from './CrawlingSource';
-import { CrawlingStepReducer } from './CrawlingStep';
-import { CrawlingItemsReducer } from './CrawlingItem';
+
+import { CrawlingSourceReducer, SelectedSourceReducer } from './CrawlingSource';
+import { CrawlingStepReducer, SelectedStepReducer } from './CrawlingStep';
+import { CrawlingItemsReducer, SelectedItemReducer } from './CrawlingItem';
 
 // export { CrawlingSourceReducer, CrawlingStepReducer, CrawlingItemsReducer };
 export default combineReducers({
 	CrawlingSources: CrawlingSourceReducer,
+	SelectedSource: SelectedSourceReducer,
 	CrawlingSteps: CrawlingStepReducer,
+	SelectedStep: SelectedStepReducer,
 	CrawlingItems: CrawlingItemsReducer,
+	SelectedItem: SelectedItemReducer,
 });

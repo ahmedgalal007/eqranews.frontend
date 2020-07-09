@@ -1,10 +1,17 @@
-const CrawlingStepReducer = CrawlingStep => {
-	return {
-		Type: 'CRAWLING_STEP_SELECTED',
-		payload: CrawlingStep,
-	};
+const CrawlingStepsReducer = (CrawlingSteps = [], Action) => {
+	if (Action.type === 'CRAWLING_STEP_FETCHED') {
+		return Action.payload;
+	}
+	return CrawlingSteps;
 };
-export { CrawlingStepReducer };
+const SelectedStepReducer = (step, Action) => {
+	if (Action.type === 'CRAWLING_STEP_SELECTED') {
+		return Action.payload;
+	}
+	return step;
+};
+export { CrawlingStepsReducer, SelectedStepReducer };
 export default {
-	CrawlingStepReducer: CrawlingStepReducer,
+	CrawlingStepsReducer: CrawlingStepsReducer,
+	SelectedStepReducer: SelectedStepReducer,
 };
