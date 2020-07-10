@@ -4,7 +4,7 @@ const CrawlingSourcesReducer = (CrawlingSources = [], Action) => {
 	}
 	return CrawlingSources;
 };
-const SelectedSourceReducer = (source, Action) => {
+const SelectedSourceReducer = (source = null, Action) => {
 	if (Action.type === 'CRAWLING_SOURCE_SELECTED') {
 		return Action.payload;
 	}

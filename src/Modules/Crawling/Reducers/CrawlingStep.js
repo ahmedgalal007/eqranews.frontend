@@ -4,7 +4,7 @@ const CrawlingStepsReducer = (CrawlingSteps = [], Action) => {
 	}
 	return CrawlingSteps;
 };
-const SelectedStepReducer = (step, Action) => {
+const SelectedStepReducer = (step = null, Action) => {
 	if (Action.type === 'CRAWLING_STEP_SELECTED') {
 		return Action.payload;
 	}

@@ -1,5 +1,14 @@
 import React from 'react';
-import App from './App';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+import App from './App';
+import reducers from './Modules/Crawling/Reducers';
+
+ReactDOM.render(
+	<Provider store={createStore(reducers)}>
+		<App />
+	</Provider>,
+	document.querySelector('#root')
+);

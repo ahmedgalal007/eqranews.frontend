@@ -1,36 +1,48 @@
 import React from 'react';
-import clsCrawling from '../../../Models/Crawling/clsCrawling';
+import { connect } from 'react-redux';
+// import clsCrawling from '../../../Models/Crawling/clsCrawling';
 // import axios from 'axios';
-import CrawlingSource from './CrawlingSource';
+import { fetchCrawlingSources } from '../Actions/Crawling';
 
-export default class Crawling extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { Data: [] };
-		//this.items.push(<CrawlingSource></CrawlingSource>);
-	}
-
+class Crawling extends React.Component {
 	componentDidMount() {
 		fetch('Data/CrawlingSources.json')
 			.then(res => res.json())
 			.then(data => {
-				this.setState({ Data: data });
-				// console.log('Data:', data);
+				this.props.fetchCrawlingSources(data);
 			});
+	}
+
+	renderSourceList() {
+		console.log('Maped State:', this.props.sources);
+		return this.props.sources.map(Source => {
+			return (
+				<div className="sources">
+					<div>{Source.Name}</div>
+					{
+						// 	<CrawlingSource
+						// 		key={'Source_' + i}
+						// 		Source={new clsCrawling.clsCrawlingSource(el)}
+						// 		className="crawling-source"
+						// 	/>
+					}
+				</div>
+			);
+		});
 	}
 
 	render() {
 		return (
 			<div className="Crawling">
 				<div>Crawling Component</div>
-				{this.state.Data.map((el, i) => (
-					<CrawlingSource
-						key={'Source_' + i}
-						Source={new clsCrawling.clsCrawlingSource(el)}
-						className="crawling-source"
-					/>
-				))}
+				{this.renderSourceList()}
 			</div>
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	return { sources: state.CrawlingSources };
+};
+
+export default connect(mapStateToProps, { fetchCrawlingSources })(Crawling);

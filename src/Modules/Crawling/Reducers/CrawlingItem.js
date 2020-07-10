@@ -4,7 +4,7 @@ const CrawlingItemsReducer = (CrawlingItems = [], Action) => {
 	}
 	return CrawlingItems;
 };
-const SelectedItemReducer = (item, Action) => {
+const SelectedItemReducer = (item = null, Action) => {
 	if (Action.type === 'CRAWLING_ITEM_SELECTED') {
 		return Action.payload;
 	}

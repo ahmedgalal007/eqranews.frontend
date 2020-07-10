@@ -1,11 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import CrawlingItem from './CrawlingItem';
 import {
 	clsCrawlingStep,
 	clsCrawlingItem,
 } from '../../../Models/Crawling/clsCrawling';
 
-export default class CrawlingStep extends React.Component {
+class CrawlingStep extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -56,3 +57,5 @@ export default class CrawlingStep extends React.Component {
 		);
 	}
 }
+
+export default connect()(CrawlingStep);

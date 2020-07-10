@@ -1,34 +1,34 @@
 const fetchCrawlingSteps = CrawlingSteps => {
 	return {
-		Type: 'CRAWLING_STEP_FETCHED',
+		type: 'CRAWLING_STEP_FETCHED',
 		payload: CrawlingSteps,
 	};
 };
 
 const selectCrawlingStep = CrawlingStep => {
 	return {
-		Type: 'CRAWLING_STEP_SELECTED',
+		type: 'CRAWLING_STEP_SELECTED',
 		payload: CrawlingStep,
 	};
 };
 
 const addCrawlingStep = CrawlingStep => {
 	return {
-		Type: 'CRAWLING_STEP_ADDED',
+		type: 'CRAWLING_STEP_ADDED',
 		payload: CrawlingStep,
 	};
 };
 
 const updateCrawlingStep = CrawlingStep => {
 	return {
-		Type: 'CRAWLING_STEP_UPDATED',
+		type: 'CRAWLING_STEP_UPDATED',
 		payload: CrawlingStep,
 	};
 };
 
 const deleteCrawlingStep = CrawlingStep => {
 	return {
-		Type: 'CRAWLING_STEP_DELETED',
+		type: 'CRAWLING_STEP_DELETED',
 		payload: CrawlingStep,
 	};
 };

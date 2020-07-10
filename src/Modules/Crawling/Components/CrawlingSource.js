@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import CrawlingStep from './CrawlingStep';
 import clsCrawling from '../../../Models/Crawling/clsCrawling';
 
-export default class CrawlingSource extends React.Component {
+class CrawlingSource extends React.Component {
 	constructor(props) {
 		super(props);
 		this.Source = props.Source;
@@ -38,3 +39,5 @@ export default class CrawlingSource extends React.Component {
 		);
 	}
 }
+
+export default connect()(CrawlingSource);
